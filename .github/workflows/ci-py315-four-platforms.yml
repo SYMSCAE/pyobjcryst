@@ -1,0 +1,19 @@
+name: Python 3.15 wheels on four platforms
+
+on:
+  push:
+    branches:
+      - codex/ci-py315-four-platforms
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wheel-extension:
+    uses: SYMSCAE/release-scripts/.github/workflows/_build-python-wheel-extension.yml@d32a7072cfe70913b4d598233cd09906dcca0894
+    with:
+      project: pyobjcryst
+      submodules: recursive
+      latest_python_version: 3.15
+      python_versions_json: '["3.15"]'
